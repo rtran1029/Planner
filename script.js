@@ -3,16 +3,18 @@ console.log("script has been linked")
 //display current day at the top (html has an id made #currentDay)
 $(document).ready(function() {
     $('#currentDay').text(moment().format('LLLL'));
+    setInterval
 
 //time block color changes dependent on past, present, future. (css has preset classes ".past .present .future")
     // var currentHour = 12
     var currentHour = moment().format("kk");
     console.log(currentHour)
+
     
 
 // make a For loop to iterate through every time slot and check its hard coded "data" against currentHour
 //use for loop to add and remove classes to the row
-debugger
+// debugger
     for (let i = 0; i < timeSlotElArray.length; i++) {
         timeSlotElArray[i].removeClass("past","present","future")
         if (currentHour > timeSlotElArray[i].data("time")) {
@@ -24,8 +26,7 @@ debugger
         }
     }
 
-//figure out how to save the text on the text field to local storage then .getItem an input it on that same row?
-//use event listener to make the save button run the function to store ^^
+
 
 });
 
@@ -52,3 +53,13 @@ let timeSlotElArray = [
     timeSlot1600,
     timeSlot1700,
 ];
+
+//figure out how to save the text on the text field to local storage then .getItem an input it on that same row?
+//use event listener to make the save button run the function to store ^^
+    $(".saveBtn").on("click", function () {
+        var text = $(this).siblings(".description").val();
+        var times = $(this).parent().attr("id");
+        localStorage.setItem(times, text);
+        console.log(times, text)
+    })
+$("#local09 .description").val(localStorage.getItem("local09"));
