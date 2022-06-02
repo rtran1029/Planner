@@ -56,10 +56,19 @@ let timeSlotElArray = [
 
 //figure out how to save the text on the text field to local storage then .getItem an input it on that same row?
 //use event listener to make the save button run the function to store ^^
-    $(".saveBtn").on("click", function () {
-        var text = $(this).siblings(".description").val();
-        var times = $(this).parent().attr("id");
-        localStorage.setItem(times, text);
-        console.log(times, text)
-    })
+$(".saveBtn").on("click", function () {
+    var text = $(this).siblings(".description").val();
+    var times = $(this).parent().attr("id");
+    localStorage.setItem(times, text);
+    console.log(times, text)
+})
+
 $("#local09 .description").val(localStorage.getItem("local09"));
+$("#local10 .description").val(localStorage.getItem("local10"));
+$("#local11 .description").val(localStorage.getItem("local11"));
+$("#local12 .description").val(localStorage.getItem("local12"));
+$("#local13 .description").val(localStorage.getItem("local13"));
+$("#local14 .description").val(localStorage.getItem("local14"));
+$("#local15 .description").val(localStorage.getItem("local15"));
+$("#local16 .description").val(localStorage.getItem("local16"));
+$("#local17 .description").val(localStorage.getItem("local17"));
